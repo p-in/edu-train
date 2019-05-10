@@ -1,5 +1,5 @@
 # edu_train
-教育培训管理系统
+教育培训管理系统，旨在打造教育培训行业全方位的系统解决方案。
 
 ## 系统环境
 PHP+MYSQL+LINUX+Nginx+Laravel
@@ -24,7 +24,7 @@ PHP+MYSQL+LINUX+Nginx+Laravel
 - 方法的命名使用驼峰法，并且首字母小写，例如 getUserName；
 - 属性的命名使用驼峰法，并且首字母小写，例如 tableName、instance；
 - 类的私有方法命名以下划线开头，后面跟上小驼峰，例如_getUser；
-- 以双下划线“”打头的函数或方法作为魔法方法，例如 `call和__autoload`；
+- 以双下划线“__”打头的函数或方法作为魔法方法，例如 `__call和__autoload`；
 
 #### 常量和配置
 - 常量以大写字母和下划线命名，例如 APP_PATH和 THINK_PATH；
@@ -81,8 +81,11 @@ PUSHER_APP_CLUSTER=mt1
 3. 为项目配置域名。
 
 ## 参考资料
-- Laravel速查手册[速查手册](https://learnku.com/docs/laravel-cheatsheet/5.8) 
-- Laravel核心[核心参考](https://learnku.com/docs/laravel-core-concept/5.5)
+- Laravel[速查手册](https://learnku.com/docs/laravel-cheatsheet/5.8) 
+- Laravel[核心参考](https://learnku.com/docs/laravel-core-concept/5.5)
 
 ## 注意事项
-- 仍有不懂之处，请联系团队其他成员协同解决；
+- 仍有不懂之处，请联系团队其他成员协同解决[<img src="https://avatars3.githubusercontent.com/u/38577038?s=80&v=4" width="40" hegiht="40" align=center />](https://github.com/orgs/p-in/people/a18138872837)
+[<img src="https://avatars1.githubusercontent.com/u/38389885?s=80&v=4" width="40" hegiht="40" align=center />](https://github.com/orgs/p-in/people/yiyiyihao)
+[<img src="https://avatars1.githubusercontent.com/u/12380157?s=80&v=4" width="40" hegiht="40" align=center />](/orgs/p-in/people/xngxiong)
+;
