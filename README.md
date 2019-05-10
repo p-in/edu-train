@@ -12,6 +12,8 @@ PHP+MYSQL+LINUX+Nginx+Laravel
 
 ### 命名规范
 
+> 如在文件头中无特殊说明，按照以下命名规则，否则按照文件说明执行
+
 #### 目录和文件
 - 目录不强制规范，小写+下划线模式；
 - 类库、函数文件统一以.php为后缀；
@@ -35,7 +37,7 @@ PHP+MYSQL+LINUX+Nginx+Laravel
 
 ### 项目开发规范
 - 按照 [Laravel开发规范](https://learnku.com/docs/laravel-specification/5.5)执行
-
+- 所有的状态码和状态说明应该以常量的方式保存在`App\Http\Controllers\Common\StringsController.php`文件中，在业务代码中不能出现具体的数字和文字说明。
 ## 本地测试环境搭建指南
 
 1. 利用`php artisan key:generate`生成APP_KEY
@@ -51,9 +53,9 @@ APP_URL=http://localhost
 DB_CONNECTION=mysql
 DB_HOST=112.74.33.38
 DB_PORT=3306
-DB_DATABASE=edu_train
+DB_DATABASE=edu
 DB_USERNAME=edu_dev
-DB_PASSWORD=w5CKCjT4rryCwrma
+DB_PASSWORD=nHPcZcp2XYjKCWrc
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
