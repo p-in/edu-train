@@ -85,7 +85,7 @@ PUSHER_APP_CLUSTER=mt1
 - Laravel[核心参考](https://learnku.com/docs/laravel-core-concept/5.5)
 
 ## 注意事项
-- 仍有不懂之处，请联系团队其他成员协同解决[<img src="https://avatars3.githubusercontent.com/u/38577038?s=80&v=4" width="40" hegiht="40" align=center />](https://github.com/orgs/p-in/people/a18138872837)
-[<img src="https://avatars1.githubusercontent.com/u/38389885?s=80&v=4" width="40" hegiht="40" align=center />](https://github.com/orgs/p-in/people/yiyiyihao)
-[<img src="https://avatars1.githubusercontent.com/u/12380157?s=80&v=4" width="40" hegiht="40" align=center />](/orgs/p-in/people/xngxiong)
+- 仍有不懂之处，请联系团队其他成员协同解决[<img src="https://avatars3.githubusercontent.com/u/38577038?s=80&v=4" width="40" hegiht="40" align=center />](https://github.com/a18138872837)
+[<img src="https://avatars1.githubusercontent.com/u/38389885?s=80&v=4" width="40" hegiht="40" align=center />](https://github.com/yiyiyihao)
+[<img src="https://avatars1.githubusercontent.com/u/12380157?s=80&v=4" width="40" hegiht="40" align=center />](https://github.com/xngxiong)
 ;
