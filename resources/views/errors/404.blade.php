@@ -5,6 +5,6 @@
     <title>404</title>
 </head>
 <body>
-    <h1>404页面</h1>
+    <h1>404页面 </h1>
 </body>
 </html>

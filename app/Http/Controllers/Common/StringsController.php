@@ -49,8 +49,8 @@ class StringsController
     
     const Code_Validation_Error = 12;
     const Msg_Code_Validation_Error_Zh = '数据验证失败';
+
     //////////////////// 业务 Code ////////////////////
-    
     // 公用
     const Exception_Unknown = 0; // 未知
     const Exception_Unknown_Zh = '未知'; // 未知
