@@ -3,13 +3,10 @@
  * User: allen.xiong
  * Date: 2019/3/11
  * Time: 11:37
- * Desc:
+ * Desc: 公用 方法
  */
 
 namespace App\Http\Controllers\Common;
-
-use App\Models\BookCategory;
-use Illuminate\Support\Facades\Cache;
 
 class CommonController
 {

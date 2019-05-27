@@ -9,10 +9,10 @@ namespace App\Http\Controllers\Common;
 
 class UtilsController
 {
-    static public function jsonResponse ($data = null, $code = StringsController::Code_Succeed, $msg = 'success')
+    static public function jsonResponse ($data = null, $code = StringsController::Code_Succeed,
+                                         $msg = StringsController::Msg_Succeed_Zh)
     {
         $data = UtilsController::replaceAllNullToEmptyString($data);
-        
         return response()->json(UtilsController::pack($data, $code, $msg));
     }
     
@@ -33,7 +33,8 @@ class UtilsController
         return $data;
     }
     
-    static public function pack ($data, $code = StringsController::Code_Succeed, $msg = StringsController::Msg_Succeed)
+    static public function pack ($data, $code = StringsController::Code_Succeed,
+                                 $msg = StringsController::Msg_Succeed_Zh)
     {
         $package = [
             'code'   => $code,

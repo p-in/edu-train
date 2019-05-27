@@ -47,11 +47,11 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
-            'strict' => true,
-            'engine' => null,
+            'charset' => 'utf8',
+            'collation' => 'utf8_general_ci',
+            'prefix' => 'e_',
+            'strict' => false,
+            'engine' => 'InnoDB',
         ],
 
         'pgsql' => [
