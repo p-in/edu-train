@@ -1,5 +1,5 @@
 # edu_train
-教育培训管理系统，旨在打造教育培训行业全方位的系统解决方案。
+多用户博客系统。
 
 ## 系统环境
 PHP+MYSQL+LINUX+Nginx+Laravel
@@ -8,6 +8,7 @@ PHP+MYSQL+LINUX+Nginx+Laravel
 - LINUX: `CentOS 7.0`
 - Nginx: `1.14.1`
 - Laravel: `5.5.28`
+后台前端页面采用 `vue-cli + element` 搭建
 ## 开发规范
 
 ### 命名规范
@@ -50,6 +51,7 @@ APP_DEBUG=true
 APP_LOG_LEVEL=debug
 APP_URL=http://localhost
 
+# 此处数据库直接使用测试库 无需在本地安装
 DB_CONNECTION=mysql
 DB_HOST=112.74.33.38
 DB_PORT=3306
@@ -79,8 +81,8 @@ PUSHER_APP_KEY=
 PUSHER_APP_SECRET=
 PUSHER_APP_CLUSTER=mt1
 ```
-
-3. 为项目配置域名。
+3. 在命令行执行`composer require`安装laravel扩展；
+4. 为项目配置域名。
 
 ## 参考资料
 - Laravel[速查手册](https://learnku.com/docs/laravel-cheatsheet/5.8) 

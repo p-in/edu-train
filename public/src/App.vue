@@ -1,21 +1,16 @@
-
-
 <template>
   <div id="app">
-      <leftNav></leftNav>
-      <div class="main">
-          <router-view></router-view>
-      </div>
+        <Header></Header>
   </div>
 </template>
 
 <script>
-import leftNav from '@/components/common/leftNav'
+import Header from '@/components/common/header'
 
 export default {
     name: 'App',
     components: {
-        leftNav
+        Header
     }
 }
 </script>
@@ -27,6 +22,7 @@ body {
     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
+    background-color: #eee;
 }
 
 #app {
@@ -37,13 +33,6 @@ body {
   position: absolute;
   color: #2c3e50;
   width: 100%;
-}
-.main{
-    float:left;
-    width:95%;
-    background-color: #EFF2F7;
-    height:100%;
-    overflow: auto;
-
+  overflow: hidden;
 }
 </style>
