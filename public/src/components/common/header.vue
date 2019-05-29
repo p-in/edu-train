@@ -41,26 +41,26 @@
                                 :class="item.icon"></i>{{item.children[0].name}}
                         </el-menu-item>
                     </template>
-                    <el-submenu index="1">
-                        <template slot="title">
-                            <i class="el-icon-location"></i>
-                            <span slot="title">导航一</span>
-                        </template>
-                        <el-menu-item-group>
-                            <span slot="title">分组一</span>
-                            <el-menu-item index="1-1">选项1</el-menu-item>
-                            <el-menu-item index="1-2">选项2</el-menu-item>
-                        </el-menu-item-group>
-                        <el-menu-item-group title="分组2">
-                            <el-menu-item index="1-3">选项3</el-menu-item>
-                        </el-menu-item-group>
-                        <el-submenu index="1-4">
-                            <span slot="title">选项4</span>
-                            <el-menu-item index="1-4-1">选项1</el-menu-item>
-                        </el-submenu>
-                    </el-submenu>
                 </el-menu>
             </aside>
+            <section class="content-container">
+                <div class="grid-content bg-purple-light">
+                    <el-col :span="24" class="breadcrumb-container">
+                        <strong class="title">{{$route.name}}</strong>
+                        <el-breadcrumb separator="/" class="breadcrumb-inner">
+                            <el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
+                                {{ item.name }}
+                            </el-breadcrumb-item>
+                        </el-breadcrumb>
+                    </el-col>
+                    <el-col :span="24" class="content-wrapper">
+                        <transition name="fade" mode="out-in">
+                            1234
+                            <router-view></router-view>
+                        </transition>
+                    </el-col>
+                </div>
+            </section>
         </el-col>
     </el-row>
 </template>
@@ -110,6 +110,8 @@
     }
 
     .main aside {
+        flex: 0 0 230px;
+        width: 230px;
         height: 100%;
     }
 
@@ -149,6 +151,12 @@
         border-radius: 20px;
         margin: 10px 0 10px 10px;
         float: right;
+    }
+
+    .main .content-container {
+        flex: 1;
+        overflow-y: scroll;
+        padding: 20px;
     }
 
     .logo-collapse-width {
