@@ -10,7 +10,7 @@ export default new Router({
       path: '/home',
       name: '首页',
       component: Home,
-      icon: 'el-icon-s-home',
+      icon: 'el-icon-s-home'
     }
   ]
 })

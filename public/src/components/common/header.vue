@@ -3,7 +3,7 @@
         <!-- header -->
         <el-col :span="24" class="header">
             <el-col :span="10" class="logo" :class="collapsed?'logo-width':'logo-collapse-width'">
-                {{collapsed?'':sysName}}
+                {{collapsed?'JS':sysName}}
             </el-col>
             <el-col :span="10">
                 <div class="tools" @click.prevent="collapse">
@@ -17,16 +17,16 @@
                     <el-dropdown-menu slot="dropdown">
                         <el-dropdown-item>我的消息</el-dropdown-item>
                         <el-dropdown-item>设置</el-dropdown-item>
-                        <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
+                        <el-dropdown-item divided @click.native="">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
             </el-col>
         </el-col>
         <!-- 左侧导航 -->
-        <el-col class="main">
+        <el-col :span="24" class="main">
             <aside :class="collapsed?'menu-collapsed':'menu-expanded'">
                 <el-menu  class="el-menu-vertical-demo"  unique-opened router
-                         background-color="#000" text-color="#fff" active-text-color="#ffd04b" :collapse="collapsed">
+                         background-color="#333" text-color="#fff" active-text-color="#ffd04b" :collapse="collapsed">
                     <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
                         <el-submenu :index="index+''" v-if="!item.leaf">
                             <template slot="title">
@@ -43,6 +43,7 @@
                     </template>
                 </el-menu>
             </aside>
+            <transition name="fade" mode="out-in">
             <section class="content-container">
                 <div class="grid-content bg-purple-light">
                     <el-col :span="24" class="breadcrumb-container">
@@ -55,12 +56,12 @@
                     </el-col>
                     <el-col :span="24" class="content-wrapper">
                         <transition name="fade" mode="out-in">
-                            1234
                             <router-view></router-view>
                         </transition>
                     </el-col>
                 </div>
             </section>
+            </transition>
         </el-col>
     </el-row>
 </template>
@@ -89,30 +90,51 @@
         height: 100%;
     }
 
-    .main {
-        height: 100%;
-    }
-
     .el-menu-vertical-demo {
         height: 100%;
     }
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {
-        width: 200px;
+        width: 230px;
     }
 
     .header {
         height: 60px;
         line-height: 60px;
-        background: #fff;
-        color: #333;
+        background: #05a19c;
+        color: #fff;
 
     }
 
+    .main {
+        display: flex;
+        position: absolute;
+        top: 60px;
+        bottom: 0;
+        overflow: hidden;
+        height: 100%;
+    }
+
     .main aside {
-        flex: 0 0 230px;
         width: 230px;
         height: 100%;
+    }
+    .main aside .el-menu{
+        height: 100%;
+    }
+    .main aside .collapsed {
+        width: 60px;
+    }
+    .main aside .collapsed .item{
+        position: relative;
+    }
+    .main aside .collapsed .submenu{
+        position:absolute;
+        top:0;
+        left:60px;
+        z-index:99999;
+        height:auto;
+        display:none;
     }
 
     .logo {
@@ -154,9 +176,25 @@
     }
 
     .main .content-container {
+        margin: 20px 0 0 20px;
+        background-color: #fff;
         flex: 1;
         overflow-y: scroll;
         padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+    }
+    .main .content-container .breadcrumb-container .title{
+        width: 200px;
+        float: left;
+        color: #475669;
+    }
+    .main .content-container .breadcrumb-container .breadcrumb-inner {
+        float: right;
+    }
+    .main .content-container .content-wrapper {
+        background-color: #fff;
+        box-sizing: border-box;
     }
 
     .logo-collapse-width {
