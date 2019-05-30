@@ -46,14 +46,14 @@
             <transition name="fade" mode="out-in">
             <section class="content-container">
                 <div class="grid-content bg-purple-light">
-                    <el-col :span="24" class="breadcrumb-container">
-                        <strong class="title">{{$route.name}}</strong>
-                        <el-breadcrumb separator="/" class="breadcrumb-inner">
-                            <el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
-                                {{ item.name }}
-                            </el-breadcrumb-item>
-                        </el-breadcrumb>
-                    </el-col>
+                    <!--<el-col :span="24" class="breadcrumb-container">-->
+                        <!--<strong class="title">{{$route.name}}</strong>-->
+                        <!--<el-breadcrumb separator="/" class="breadcrumb-inner">-->
+                            <!--<el-breadcrumb-item v-for="item in $route.matched" :key="item.path">-->
+                                <!--{{ item.name }}-->
+                            <!--</el-breadcrumb-item>-->
+                        <!--</el-breadcrumb>-->
+                    <!--</el-col>-->
                     <el-col :span="24" class="content-wrapper">
                         <transition name="fade" mode="out-in">
                             <router-view></router-view>
@@ -103,7 +103,7 @@
         line-height: 60px;
         background: #05a19c;
         color: #fff;
-
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
     }
 
     .main {
@@ -177,12 +177,12 @@
 
     .main .content-container {
         margin: 20px 0 0 20px;
-        background-color: #fff;
+        /*background-color: #fff;*/
         flex: 1;
         overflow-y: scroll;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+        /*box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)*/
     }
     .main .content-container .breadcrumb-container .title{
         width: 200px;
@@ -193,7 +193,7 @@
         float: right;
     }
     .main .content-container .content-wrapper {
-        background-color: #fff;
+        text-align: left;
         box-sizing: border-box;
     }
 
