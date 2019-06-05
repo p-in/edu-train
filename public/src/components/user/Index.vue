@@ -19,13 +19,15 @@
                 </el-form>
             </el-col>
             <el-col class="container" :span="24">
-                <el-table style="width: 100%"
+                <el-table style="width: 100%" v-loading="loading" element-loading-text="拼命加载中"
+                          element-loading-spinner="el-icon-loading"
                         :data="tableData.filter(data => !search || data.username.toLowerCase().includes(search.toLowerCase()))">
                     <el-table-column align="center" label="ID" prop="id"></el-table-column>
                     <el-table-column align="center" label="用户名" prop="username"></el-table-column>
                     <el-table-column align="center" label="性别" prop="gender"></el-table-column>
                     <el-table-column align="center" label="email" prop="email"></el-table-column>
-                    <el-table-column align="center" label="头像" prop="avatar"></el-table-column>
+                    <el-table-column align="center" label="头像" prop="avatar">
+                    </el-table-column>
                     <el-table-column align="center" label="最后登录时间" prop="last_login_time"></el-table-column>
                     <el-table-column align="center" label="最后登录IP" prop="last_login_ip"></el-table-column>
                     <el-table-column align="center">
@@ -57,10 +59,15 @@
                             <el-input v-model="form.username" autocomplete="off"></el-input>
                         </el-form-item>
                         <el-form-item label="用户头像" :label-width="formLabelWidth">
-                            <el-image
-                                    style="width: 100px; height: 100px"
-                                    :src="url"
-                                    :fit="fit"></el-image>
+                            <el-upload
+                                    class="avatar-uploader"
+                                    action="https://jsonplaceholder.typicode.com/posts/"
+                                    :show-file-list="false"
+                                    :on-success="handleAvatarSuccess"
+                                    :before-upload="beforeAvatarUpload">
+                                <img v-if="form.avatar" :src="form.avatar" class="avatar">
+                                <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+                            </el-upload>
                         </el-form-item>
                         <el-form-item label="用户性别" :label-width="formLabelWidth">
                             <el-radio-group v-model="form.gender">
@@ -80,6 +87,7 @@
 </template>
 
 <script>
+  import axios from 'axios';
   export default {
     name: "Index",
     data() {
@@ -105,33 +113,17 @@
           avatar: '../static/images/user.png',
           last_login_time:'2019-05-20 10:00:00',
           last_login_ip: '127.0.0.1',
-        }, {
-          id: '1',
-          username: '王小虎',
-          gender: '男',
-          email: 'admin@admin.com',
-          avatar: '../static/images/user.png',
-          last_login_time:'2019-05-20 10:00:00',
-          last_login_ip: '127.0.0.1',
-        }, {
-          id: '1',
-          username: '王小虎',
-          gender: '男',
-          email: 'admin@admin.com',
-          avatar: '../static/images/user.png',
-          last_login_time:'2019-05-20 10:00:00',
-          last_login_ip: '127.0.0.1',
-        }, {
-          id: '1',
-          username: '王小虎',
-          gender: '男',
-          email: 'admin@admin.com',
-          avatar: '../static/images/user.png',
-          last_login_time:'2019-05-20 10:00:00',
-          last_login_ip: '127.0.0.1',
         }],
         radio: 1,
+        loading:false,
       }
+    },
+    mounted () {
+      axios
+        .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+        .then(response => (this.info = response))
+        .catch(error => console.log(error))
+        .finally(() => this.loading = false)
     },
     methods: {
       onSubmit() {
@@ -152,12 +144,50 @@
             message: '删除成功!'
           });
         });
+      },
+      handleAvatarSuccess(res, file) {
+        this.form.avatar = URL.createObjectURL(file.raw);
+      },
+      beforeAvatarUpload(file) {
+        const isJPG = file.type === 'image/jpeg';
+        const isLt2M = file.size / 1024 / 1024 < 2;
+
+        if (!isJPG) {
+          this.$message.error('上传头像图片只能是 JPG 格式!');
+        }
+        if (!isLt2M) {
+          this.$message.error('上传头像图片大小不能超过 2MB!');
+        }
+        return isJPG && isLt2M;
       }
     }
   }
 </script>
 
 <style scoped>
+    .avatar-uploader .el-upload {
+        border: 1px dashed #d9d9d9;
+        border-radius: 6px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    .avatar-uploader .el-upload:hover {
+        border-color: #409EFF;
+    }
+    .avatar-uploader-icon {
+        font-size: 28px;
+        color: #8c939d;
+        width: 178px;
+        height: 178px;
+        line-height: 178px;
+        text-align: center;
+    }
+    .avatar {
+        width: 178px;
+        height: 178px;
+        display: block;
+    }
     .search{
         border-radius: 10px;
         background-color: #fff;
