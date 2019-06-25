@@ -1,28 +1,17 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
 <head>
-    <meta charset="UTF-8">
-    <!-- import CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Laravel</title>
+
+    <link href="{{ asset('css/app.css')  }}" rel="stylesheet">
 </head>
 <body>
 <div id="app">
-    <el-button @click="visible = true">Button</el-button>
-    <el-dialog :visible.sync="visible" title="Hello world">
-        <p>Try Element</p>
-    </el-dialog>
+    <welcome-component></welcome-component>
 </div>
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
-<!-- import Vue before Element -->
-<script src="/lib/vue.js"></script>
-<!-- import JavaScript -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
-<script>
-    new Vue({
-        el: '#app',
-        data: function() {
-            return { visible: false }
-        }
-    })
-</script>
 </html>
